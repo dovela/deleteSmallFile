@@ -33,4 +33,9 @@ options:
 | -y         |      |         | 跳过删除确认                           |
 
 # 使用示例
+![Snipaste_2022-06-03_21-59-56](https://user-images.githubusercontent.com/33590269/171870253-a3d14b43-7042-4924-a28a-0aad382c0444.png)
+
+![Snipaste_2022-06-03_22-03-22](https://user-images.githubusercontent.com/33590269/171870265-7b9e96b4-fa33-4afe-87ec-f26afa71ed77.png)
+
+![Snipaste_2022-06-03_22-03-46](https://user-images.githubusercontent.com/33590269/171870269-54e6ec0a-4818-4c1e-9f83-ff8cfd156e21.png)
 
