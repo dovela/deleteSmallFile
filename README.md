@@ -39,3 +39,8 @@ options:
 
 ![Snipaste_2022-06-03_22-03-46](https://user-images.githubusercontent.com/33590269/171870269-54e6ec0a-4818-4c1e-9f83-ff8cfd156e21.png)
 
+### tips
+
+.sh和.py版本独立，都是单文件可单独使用。python版完成度更高一些。
+
+win10下搭配 `计划任务` 使用，linux下搭配 `cron` 使用，不再另作说明。
