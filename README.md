@@ -34,9 +34,13 @@ options:
 | -y         |      |         | 跳过删除确认                           |
 
 # 使用示例
+![Snipaste_2022-06-03_22-45-49](https://user-images.githubusercontent.com/33590269/171878014-3a5bf189-5c18-4833-a8be-8b6edceaa043.png)
 
+![Snipaste_2022-06-03_22-48-13](https://user-images.githubusercontent.com/33590269/171878026-08eb6526-5879-4ef8-86fa-b76f7fa85421.png)
 
-### tips
+![Snipaste_2022-06-03_22-48-25](https://user-images.githubusercontent.com/33590269/171878033-dfeceeda-df3f-4a1a-88cb-d6fbee32c570.png)
+
+## tips
 
 .sh和.py版本独立，都是单文件可单独使用。python版完成度更高一些。
 
