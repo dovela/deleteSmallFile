@@ -4,7 +4,7 @@ import time
 import pathlib
 
 
-def removeSmallFile(work_dir, less_threshold, wait_time):  # 获取处理目录，带不带/都可以
+def removeSmallFile(work_dir, less_threshold, wait_time, file_suffix):  # 获取处理目录，带不带/都可以
     to_be_removed_files = os.path.join(work_dir, ".TBRF.txt")  # 暂存需删除文件
     if os.path.exists(to_be_removed_files):  # 预删除临时txt
         os.remove(to_be_removed_files)
@@ -17,7 +17,7 @@ def removeSmallFile(work_dir, less_threshold, wait_time):  # 获取处理目录�
             # 获取文件的大小
             file_size = os.path.getsize(item_path)
             # 小于阈值就写入到删除列表
-            if file_size < less_threshold:
+            if file_size < less_threshold and file.endswith(file_suffix):
                 f.write(item_path + '\n')
     f.close()
 
@@ -49,18 +49,20 @@ if __name__ == '__main__':
     parser.add_argument('work_dir', type=pathlib.Path,
                         help="path. If the directory include space,the \"\" will be necessary.")
     parser.add_argument('-s', '--size', type=int, default=3145728,
-                        help="int. Default 3145728 byte, file volume which less than this args will be removed.")
+                        help="int. Default 3145728 byte. File volume which less than this args will be removed.")
     parser.add_argument('-t', '--wait', type=int, default=60,
-                        help="int. Default 60 s, waiting for normal file volume to exceed threshold.")
-    parser.add_argument('-y', action="store_true", help="skip delete confirmation.")
+                        help="int. Default 60 s. Waiting for normal file volume to exceed threshold.")
+    parser.add_argument('--suffix', type=str, default=".flv",
+                        help="str. Default \".flv\". Only files with this suffix will be deleted.")
+    parser.add_argument('-y', action="store_true", help="Skip delete confirmation.")
 
     args = parser.parse_args()
 
     if args.y:
-        removeSmallFile(work_dir=args.work_dir, less_threshold=args.size, wait_time=args.wait)
+        removeSmallFile(work_dir=args.work_dir, less_threshold=args.size, wait_time=args.wait, file_suffix=args.suffix)
     else:
         input_confirm = input("Do you want to continue? [Y/n] ")
         if input_confirm.strip() in ["y", "Y", "yes", "YES"]:
-            removeSmallFile(work_dir=args.work_dir, less_threshold=args.size, wait_time=args.wait)
+            removeSmallFile(work_dir=args.work_dir, less_threshold=args.size, wait_time=args.wait, file_suffix=args.suffix)
         else:
             print("Abort.")
